@@ -23,7 +23,7 @@ QniteCircle::~QniteCircle() {}
 bool QniteCircle::select(const QList<QPoint> &path) {
   // nothing to select
   if (path.isEmpty()) {
-    return false;
+    return QniteArtist::select(path);
   }
 
   // when there are less than 3 point we use the point selection
@@ -45,17 +45,19 @@ bool QniteCircle::select(const QList<QPoint> &path) {
 
     if (polygonPath.containsPoint(cp, Qt::OddEvenFill)) {
       m_selectedIds << id;
+      auto index = m_xValues.keys().indexOf(id);
+      m_selectedIndexes.insert(index);
     }
   }
 
   // no points have been selected
   if (m_selectedIds.isEmpty()) {
-    return false;
+    return QniteArtist::select(path);
   }
 
   emit selectedChanged();
   update();
-  return true;
+  return QniteArtist::select(path);
 }
 
 bool QniteCircle::select(const QPoint p) {
@@ -112,7 +114,7 @@ void QniteCircle::select(QList<int> indexes) {
       m_selectedIndexes << i;
     }
   }
-  // TODO: should emit selectedChanged???
+  emit selectedChanged();
   update();
 }
 
