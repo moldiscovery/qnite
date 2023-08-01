@@ -20,7 +20,7 @@ jobs:
       image: ghcr.io/moldiscovery/centos7:latest
       credentials:
         username: ${{ github.actor }}
-        password: ${{ github.token }}
+        password: ${{ secrets.GHCR_ACCESS_TOKEN }}
 
     steps:
     - uses: actions/checkout@v3
