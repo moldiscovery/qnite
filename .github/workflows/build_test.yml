@@ -24,6 +24,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
     
     - name: Download Qt from releases 
       uses: robinraju/release-downloader@v1.8
