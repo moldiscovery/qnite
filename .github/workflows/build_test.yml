@@ -24,6 +24,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Download Qt from releases 
+      uses: robinraju/release-downloader@v1.8
+      with:
+        repository: "moldiscovery/build-qt"
+        tag: qt-5.15.8-1-linux
+        fileName: qt-5.15.8-1-linux.tar.xz
+        token: ${{ secrets.GH_ACCESS_TOKEN }}
+
+    - name: Extract Qt and Add Qt to $PATH
+      run: |
+        tar xvf qt-5.15.8-1-linux.tar.xz -C /
+        echo "/Qt/bin" >> $GITHUB_PATH
 
     - name: Configure CMake
       shell: scl enable devtoolset-8 -- bash {0}
