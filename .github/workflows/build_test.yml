@@ -31,7 +31,7 @@ jobs:
         repository: "moldiscovery/build-qt"
         tag: qt-5.15.8-1-linux
         fileName: qt-5.15.8-1-linux.tar.xz
-        token: ${{ secrets.GH_ACCESS_TOKEN }}
+        token: ${{ github.token }}
 
     - name: Extract Qt and Add Qt to $PATH
       run: |
