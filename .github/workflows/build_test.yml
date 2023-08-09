@@ -58,4 +58,4 @@ jobs:
       shell: scl enable devtoolset-8 -- bash {0}
       # working-directory: ${{github.workspace}}/build
       # can't use ${github.workspace} above because of https://github.com/actions/runner/issues/2058
-      run: cd $GITHUB_WORKSPACE/build && ctest -C ${{env.BUILD_TYPE}}
+      run: cd ${{github.workspace}}/build && ctest -C ${{env.BUILD_TYPE}}
