@@ -54,10 +54,21 @@ jobs:
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Test
+    - name: Run Tests
       env:
         QT_QPA_PLATFORM: offscreen
       shell: scl enable devtoolset-8 -- bash {0}
       # working-directory: ${{github.workspace}}/build
       # can't use ${github.workspace} above because of https://github.com/actions/runner/issues/2058
-      run: cd ${{github.workspace}}/build && ctest -C ${{env.BUILD_TYPE}}
+      run: | 
+        cd ${{github.workspace}}/build 
+        ctest -C ${{env.BUILD_TYPE}}
+        echo "TEST_LOGFILE=${{github.workspace}}/build/Testing/Temporary/LastTest.log" >> $GITHUB_ENV
+
+    - name: Save test log
+      uses: actions/upload-artifact@v3
+      with:
+        name: LastTest.log
+        path: ${{env.TEST_LOGFILE}}
+        retention-days: 90
+        if-no-files-found: warn
