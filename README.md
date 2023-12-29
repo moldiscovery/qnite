@@ -67,6 +67,46 @@ cmake --build .
 ctest --output-on-failure
 ```
 
+## Usage
+
+How to include QNite in your CMake application:
+
+* include qnite as a CMake subdirectory
+
+* add qnite as your target dependency:
+
+  ```
+  target_link_libraries(
+      my_target
+      PRIVATE
+      ...
+      qnite
+  )
+  ```
+
+* in the project *main.cpp*, initialize qnite resources:
+
+  ```
+  #include <qnite.h>
+
+  void main() {
+    ...
+    Q_INIT_RESOURCE(qnite);
+    ...
+  }
+  ```
+
+* add to your CMakeLists.txt the logic allowing to install qnite resources:
+
+  ```
+  get_target_property(QNITE_SOURCE_DIR qnite SOURCE_DIR)
+
+  install(
+      DIRECTORY "${QNITE_SOURCE_DIR}/qml/Qnite/"
+      DESTINATION Qnite/
+      COMPONENT <my-component>
+  )
+  ```
 
 ## Roadmap
 
