@@ -1,7 +1,7 @@
 #ifndef QNITE_CATEGORY_AXIS_H
 #define QNITE_CATEGORY_AXIS_H
 
-#include "qniteaxis.h"
+#include <qniteaxis.h>
 
 class QniteCategoryAxis : public QniteAxis {
   Q_OBJECT

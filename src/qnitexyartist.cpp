@@ -13,35 +13,31 @@ QniteXYArtist::~QniteXYArtist() {}
 QList<qreal> QniteXYArtist::xValues() { return m_xValues.values(); }
 
 void QniteXYArtist::setXValues(const QList<qreal> &values) {
-  if (m_xValues.values() != values) {
-    m_xValues.clear();
-    for (int i = 0; i < values.size(); i++) {
-      m_xValues.insert(i, values.at(i));
-    }
-    // TODO: transform the values here and cache
-    emit xValuesChanged();
-    update();
-
-    // clear the current selection after any changes on X values
-    clearSelection();
+  m_xValues.clear();
+  for (int i = 0; i < values.size(); i++) {
+    m_xValues.insert(i, values.at(i));
   }
+  // TODO: transform the values here and cache
+  emit xValuesChanged();
+  update();
+
+  // clear the current selection after any changes on X values
+  clearSelection();
 }
 
 QList<qreal> QniteXYArtist::yValues() { return m_yValues.values(); }
 
 void QniteXYArtist::setYValues(const QList<qreal> &values) {
-  if (m_yValues.values() != values) {
-    m_yValues.clear();
-    for (int i = 0; i < values.size(); i++) {
-      m_yValues.insert(i, values.at(i));
-    }
-    // TODO: transform the values here and cache
-    emit yValuesChanged();
-    update();
-
-    // clear the current selection after any changes on Y values
-    clearSelection();
+  m_yValues.clear();
+  for (int i = 0; i < values.size(); i++) {
+    m_yValues.insert(i, values.at(i));
   }
+  // TODO: transform the values here and cache
+  emit yValuesChanged();
+  update();
+
+  // clear the current selection after any changes on Y values
+  clearSelection();
 }
 
 QniteMapper *QniteXYArtist::xMapper() const { return m_xMapper; }

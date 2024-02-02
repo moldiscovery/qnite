@@ -2,6 +2,7 @@
 #define QNITEBARPAINTER_H
 
 #include "qnanoquickitempainter.h"
+
 #include "qnitebar.h"
 #include "qnitepen.h"
 

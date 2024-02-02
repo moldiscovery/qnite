@@ -1,7 +1,7 @@
 project(line)
 
 find_package(
-    Qt5
+    Qt6
 COMPONENTS
     Quick
 REQUIRED
@@ -28,7 +28,7 @@ target_link_libraries(
     line
 PRIVATE
     qnite
-    Qt5::Quick
+    Qt::Quick
 )
 
 target_include_directories(

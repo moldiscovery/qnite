@@ -1,10 +1,14 @@
 #ifndef QNITE_ARTIST_H
 #define QNITE_ARTIST_H
 
-#include "qnanoquickitem.h"
+#include <qnanoquickitem.h>
+
+Q_MOC_INCLUDE("qnitepen.h")
+Q_MOC_INCLUDE("qniteaxes.h")
 
 class QnitePen;
 class QniteAxes;
+
 class QniteArtist : public QNanoQuickItem {
   Q_OBJECT
   Q_PROPERTY(QniteAxes *axes READ axes NOTIFY axesChanged)

@@ -1,5 +1,5 @@
 find_package(
-    Qt5
+    Qt6
 COMPONENTS
     QuickTest
 REQUIRED
@@ -18,7 +18,7 @@ target_link_libraries(
     tst_qnitecircle
 PRIVATE
     qnite
-    Qt5::QuickTest
+    Qt::QuickTest
 )
 
 target_compile_definitions(

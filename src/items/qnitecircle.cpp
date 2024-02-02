@@ -40,12 +40,13 @@ bool QniteCircle::select(const QList<QPoint> &path) {
   // in the polygon
   m_selectedIds.clear();
   auto ids = m_xMapped.keys();
+  const auto keys = m_xValues.keys();
   for (auto id : ids) {
     QPointF cp(m_xMapped.value(id), m_yMapped.value(id));
 
     if (polygonPath.containsPoint(cp, Qt::OddEvenFill)) {
       m_selectedIds << id;
-      auto index = m_xValues.keys().indexOf(id);
+      auto index = keys.indexOf(id);
       m_selectedIndexes.insert(index);
     }
   }

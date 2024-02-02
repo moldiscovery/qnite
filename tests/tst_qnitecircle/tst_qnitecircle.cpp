@@ -6,7 +6,6 @@
 // We need to set the QML import paths before the test file is read and this is
 // the only working way
 int main(int argc, char **argv) {
-  QTEST_ADD_GPU_BLACKLIST_SUPPORT
   QTEST_SET_MAIN_SOURCE_PATH
   QVector<char *> newArgv;
   int i = 0;

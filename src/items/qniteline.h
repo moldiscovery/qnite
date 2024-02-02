@@ -3,8 +3,6 @@
 
 #include "qnitexyartist.h"
 
-#include <QColor>
-
 class QniteLine : public QniteXYArtist {
   Q_OBJECT
   Q_PROPERTY(bool drawSymbols READ drawSymbols WRITE setDrawSymbols NOTIFY

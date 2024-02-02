@@ -1,7 +1,7 @@
 project(qnanopainter)
 
 find_package(
-    Qt5
+    Qt6
 COMPONENTS
     Quick
 REQUIRED
@@ -38,7 +38,7 @@ STATIC
 target_compile_features(
     qnanopainter
 PUBLIC
-    cxx_std_14
+    cxx_std_17
 )
 
 target_compile_definitions(
@@ -51,8 +51,8 @@ PRIVATE
 target_link_libraries(
     qnanopainter
 PRIVATE
-    Qt5::Quick
-    $<$<BOOL:${WIN32}>:Qt5::Gui_GLESv2>
+    Qt::Quick
+    $<$<BOOL:${WIN32}>:Qt::Gui_GLESv2>
     $<$<NOT:$<BOOL:${WIN32}>>:GL>
 )
 

@@ -154,7 +154,7 @@ void QniteAxes::append_artists(QQmlListProperty<QniteArtist> *property,
 }
 
 QniteArtist *QniteAxes::at_artists(QQmlListProperty<QniteArtist> *property,
-                                   int index) {
+                                   qsizetype index) {
   QniteAxes *axes = qobject_cast<QniteAxes *>(property->object);
   return axes->m_artists.at(index);
 }
@@ -165,7 +165,7 @@ void QniteAxes::clear_artists(QQmlListProperty<QniteArtist> *property) {
     delete axes->m_artists.takeFirst();
 }
 
-int QniteAxes::count_artists(QQmlListProperty<QniteArtist> *property) {
+qsizetype QniteAxes::count_artists(QQmlListProperty<QniteArtist> *property) {
   QniteAxes *axes = qobject_cast<QniteAxes *>(property->object);
   return axes->m_artists.count();
 }
@@ -179,7 +179,7 @@ void QniteAxes::append_tools(QQmlListProperty<QniteTool> *property,
 }
 
 QniteTool *QniteAxes::at_tools(QQmlListProperty<QniteTool> *property,
-                               int index) {
+                               qsizetype index) {
   QniteAxes *axes = qobject_cast<QniteAxes *>(property->object);
   return axes->m_tools.at(index);
 }
@@ -190,7 +190,7 @@ void QniteAxes::clear_tools(QQmlListProperty<QniteTool> *property) {
     delete axes->m_tools.takeFirst();
 }
 
-int QniteAxes::count_tools(QQmlListProperty<QniteTool> *property) {
+qsizetype QniteAxes::count_tools(QQmlListProperty<QniteTool> *property) {
   QniteAxes *axes = qobject_cast<QniteAxes *>(property->object);
   return axes->m_tools.count();
 }

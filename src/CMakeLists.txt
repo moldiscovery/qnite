@@ -1,5 +1,9 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(qnite VERSION 1.0.0 LANGUAGES CXX)
+
 find_package(
-    Qt5
+    Qt6
 COMPONENTS
     Quick
 REQUIRED
@@ -48,14 +52,14 @@ STATIC
 target_link_libraries(
     qnite
 PUBLIC
-    Qt5::Quick
+    Qt::Quick
     qnanopainter
 )
 
 target_compile_features(
     qnite
 PUBLIC
-    cxx_std_14
+    cxx_std_17
 )
 
 target_include_directories(

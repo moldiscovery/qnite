@@ -5,7 +5,6 @@
 
 class QniteSpline : public QniteLine {
   Q_OBJECT
-  Q_ENUMS(Interpolation)
   Q_PROPERTY(Interpolation interpolation READ interpolation WRITE
                  setInterpolation NOTIFY interpolationChanged)
   Q_PROPERTY(qreal tension READ tension WRITE setTension NOTIFY tensionChanged)
@@ -15,6 +14,8 @@ public:
   explicit QniteSpline(QQuickItem *parent = 0);
 
   enum Interpolation { Cosine, Cubic, CatmullRom, Hermite };
+  Q_ENUM(Interpolation)
+
   Interpolation interpolation() const { return m_interpolation; }
   void setInterpolation(Interpolation i);
 

@@ -1,10 +1,14 @@
 #ifndef QNITE_AXIS_H
 #define QNITE_AXIS_H
 
-#include "qniteartist.h"
+#include <qniteartist.h>
+
+Q_MOC_INCLUDE("qnitemapper.h")
+Q_MOC_INCLUDE("qniteticker.h")
 
 class QniteMapper;
 class QniteTicker;
+
 class QniteAxis : public QniteArtist {
   Q_OBJECT
   Q_PROPERTY(qreal size READ size WRITE setSize NOTIFY sizeChanged)

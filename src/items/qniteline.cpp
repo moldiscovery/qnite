@@ -1,4 +1,5 @@
 #include "qniteline.h"
+
 #include "qniteaxes.h"
 #include "qniteaxis.h"
 #include "qnitelinepainter.h"

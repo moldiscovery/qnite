@@ -3,8 +3,12 @@
 
 #include "qnanoquickitem.h"
 
+Q_MOC_INCLUDE("qniteaxes.h")
+Q_MOC_INCLUDE("qniteartist.h")
+
 class QniteAxes;
 class QniteArtist;
+
 class QniteTool : public QNanoQuickItem {
   Q_OBJECT
   Q_PROPERTY(QniteAxes *axes READ axes NOTIFY

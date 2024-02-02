@@ -1,7 +1,7 @@
 project(plots)
 
 find_package(
-    Qt5
+    Qt6
 COMPONENTS
     Quick
 REQUIRED
@@ -28,7 +28,7 @@ target_link_libraries(
     plots
 PRIVATE
     qnite
-    Qt5::Quick
+    Qt::Quick
 )
 
 target_include_directories(

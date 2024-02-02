@@ -1,5 +1,5 @@
 find_package(
-    Qt5
+    Qt6
 COMPONENTS
     Test
 REQUIRED
@@ -18,7 +18,7 @@ target_link_libraries(
     tst_qnitelinearticker
 PRIVATE
     qnite
-    Qt5::Test
+    Qt::Test
 )
 
 add_test(

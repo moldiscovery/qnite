@@ -96,8 +96,8 @@ void QniteLinearTicker::buildTicks() {
   }
 
   // remove duplicates
-  QSet<qreal> minSet = mins.toSet();
-  QSet<qreal> majorSet = majors.toSet();
+  QSet<qreal> minSet = QSet<qreal>{mins.cbegin(), mins.cend()};
+  QSet<qreal> majorSet = QSet<qreal>{majors.cbegin(), majors.cend()};
 
   auto uniqueset = minSet.subtract(majorSet);
   mins = uniqueset.values();

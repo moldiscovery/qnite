@@ -24,8 +24,8 @@ public:
   Q_INVOKABLE void reset();
 
 signals:
-  void minZoomFactorChanged() const;
-  void limitZoomChanged() const;
+  void minZoomFactorChanged();
+  void limitZoomChanged();
 
 protected:
   virtual void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;

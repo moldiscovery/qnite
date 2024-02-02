@@ -4,12 +4,14 @@
 #include "qnitetool.h"
 
 class QniteArtist;
+
 class QniteSelectionTool : public QniteTool {
   Q_OBJECT
 
 public:
   explicit QniteSelectionTool(QQuickItem *parent = 0);
   virtual ~QniteSelectionTool() {}
+
   Q_INVOKABLE void reset();
 
 protected:

@@ -2,7 +2,6 @@
 #define QNITE_BAR_H
 
 #include "qnitexyartist.h"
-#include <QColor>
 
 class QniteBar : public QniteXYArtist {
   Q_OBJECT

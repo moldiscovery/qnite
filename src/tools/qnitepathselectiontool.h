@@ -3,8 +3,12 @@
 
 #include "qniteselectiontool.h"
 
+Q_MOC_INCLUDE("qnitepen.h")
+Q_MOC_INCLUDE("qniteartist.h")
+
 class QnitePen;
 class QniteArtist;
+
 class QnitePathSelectionTool : public QniteSelectionTool {
   Q_OBJECT
   Q_PROPERTY(
