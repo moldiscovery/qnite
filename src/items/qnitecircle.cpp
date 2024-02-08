@@ -16,6 +16,10 @@ QniteCircle::QniteCircle(QQuickItem *parent)
     : QniteXYArtist(parent), m_highlightedId{-1}, m_highlightedIndex{-1} {
   setFlag(ItemHasContents, true);
   setClipper(new QniteClipper(this));
+
+  connect(
+      this, &QniteCircle::selectedChanged,
+      this, [this]() { emit selectedIndexesChanged(m_selectedIndexes.values()); });
 }
 
 QniteCircle::~QniteCircle() {}

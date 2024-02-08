@@ -5,7 +5,7 @@
 
 class QniteCircle : public QniteXYArtist {
   Q_OBJECT
-  Q_PROPERTY(QList<int> selectedIndexes READ selectedIndexes)
+  Q_PROPERTY(QList<int> selectedIndexes READ selectedIndexes NOTIFY selectedIndexesChanged)
   Q_PROPERTY(int highlightedIndex READ highlightedIndex)
 
 public:
@@ -26,6 +26,9 @@ public:
   Q_INVOKABLE void highlight(int index);
 
   QNanoQuickItemPainter *createItemPainter() const Q_DECL_OVERRIDE;
+
+signals:
+  void selectedIndexesChanged(QList<int>);
 
 private:
   QSet<int> m_selectedIds; //! here we store the ids of selected points
