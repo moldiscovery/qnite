@@ -5,7 +5,10 @@
 
 class QniteCircle : public QniteXYArtist {
   Q_OBJECT
-  Q_PROPERTY(QList<int> selectedIndexes READ selectedIndexes NOTIFY selectedIndexesChanged)
+  Q_PROPERTY(QList<int> selectedIndexes
+      READ selectedIndexes
+      WRITE select
+      NOTIFY selectedIndexesChanged)
   Q_PROPERTY(int highlightedIndex READ highlightedIndex)
 
 public:
@@ -20,12 +23,15 @@ public:
 
   bool select(const QList<QPoint> &) Q_DECL_OVERRIDE;
   bool select(const QPoint) Q_DECL_OVERRIDE;
+
+  QNanoQuickItemPainter *createItemPainter() const Q_DECL_OVERRIDE;
+
+public slots:
   Q_INVOKABLE void clearSelection() Q_DECL_OVERRIDE;
 
   Q_INVOKABLE void select(QList<int> indexes);
   Q_INVOKABLE void highlight(int index);
 
-  QNanoQuickItemPainter *createItemPainter() const Q_DECL_OVERRIDE;
 
 signals:
   void selectedIndexesChanged(QList<int>);
