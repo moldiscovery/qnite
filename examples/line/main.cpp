@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQuickWindow>
 
 #include <qnite.h>
 
@@ -8,9 +9,7 @@ int main(int argc, char *argv[]) {
 
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-#ifdef Q_OS_WIN
-  QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
-#endif
+  QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGL);
 
   QGuiApplication app(argc, argv);
 
