@@ -7,6 +7,11 @@ COMPONENTS
 REQUIRED
 )
 
+# Windows uses the OpenGL ES library shipped with Qt (Qt5::Gui_GLESv2)
+if (NOT WIN32)
+    find_package(OpenGL REQUIRED)
+endif()
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -53,7 +58,7 @@ target_link_libraries(
 PRIVATE
     Qt5::Quick
     $<$<BOOL:${WIN32}>:Qt5::Gui_GLESv2>
-    $<$<NOT:$<BOOL:${WIN32}>>:GL>
+    $<$<NOT:$<BOOL:${WIN32}>>:OpenGL::GL>
 )
 
 target_include_directories(
